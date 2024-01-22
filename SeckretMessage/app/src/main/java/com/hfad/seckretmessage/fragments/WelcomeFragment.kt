@@ -6,28 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 import com.hfad.seckretmessage.R
 
 class WelcomeFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_welcome, container, false)
+        val startButton = view.findViewById<Button>(R.id.start)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val bStart = view.findViewById<Button>(R.id.start)
-        bStart.setOnClickListener {
-            val fr = getFragmentManager()?.beginTransaction()
-            fr?.replace(R.id.fragment_container_view, MessageFragment())
-            fr?.commit()
+        startButton.setOnClickListener {
+            view.findNavController()
+                .navigate(R.id.action_welcomeFragment_to_messageFragment)
         }
+        return view
+
     }
 }
