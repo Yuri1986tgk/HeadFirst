@@ -22,6 +22,8 @@ class EncryptFragment : Fragment() {
         val tvText = view.findViewById<TextView>(R.id.encrypted_message)
         tvText.text = arguments?.getString("key")
 
+
+
         return view
     }
 }
