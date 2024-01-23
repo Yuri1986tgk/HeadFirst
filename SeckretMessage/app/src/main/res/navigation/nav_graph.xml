@@ -30,5 +30,8 @@
         android:label="fragment_encrypt"
         tools:layout="@layout/fragment_encrypt" >
 
+        <argument
+            android:name="message"
+            app:argType="string" />
     </fragment>
 </navigation>

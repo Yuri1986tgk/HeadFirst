@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.hfad.seckretmessage.R
 
 class MessageFragment : Fragment() {
@@ -23,10 +24,11 @@ class MessageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_message, container, false)
         val nextButton = view.findViewById<Button>(R.id.next)
         val editText = view.findViewById<EditText>(R.id.edit_text)
-        val bundle = Bundle()
+
 
 
         nextButton.setOnClickListener {
+            val bundle = Bundle()
             val message = editText.text.toString()
 
             bundle.putString("key", message)
